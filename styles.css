@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: rgb(221, 216, 216);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7dvh;
+}
+
+.left-header, .right-header{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0 20px;
+}
+
+
+.toggle-menu svg{
+    width: 30px;
+    fill: gray;
+    cursor: pointer;
+}
+
+.notification svg{
+    width: 30px;
+    fill: gray;
+    cursor: pointer;
+}
+
+.account svg{
+    width: 30px;
+    fill: gray;
+    cursor: pointer;
+}
+
+.search-bar input{
+    padding: 8px 12px 8px 40px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+    pointer-events: none;
+}
