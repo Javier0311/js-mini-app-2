@@ -4,18 +4,28 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
 header{
-    background-color: rgb(221, 216, 216);
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 7dvh;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
 }
 
 .left-header, .right-header{
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     margin: 0 20px;
 }
 
@@ -57,4 +67,61 @@ header{
     transform: translateY(-50%);
     color: gray;
     pointer-events: none;
+}  
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.img-main img{
+    width: 400px;
+}
+
+.left-bar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #9bb59c;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: width 0.3s ease;
+}
+
+.left-pages{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bar-dashboard, .bar-presets{
+    display: flex;
+    gap: 10px;
+}
+
+.bar-dashboard svg, .bar-presets svg{
+    width: 25px;
+}
+
+body.sidebar-hidden .left-bar {
+    width: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+body.sidebar-hidden header,
+body.sidebar-hidden main {
+    margin-left: 0;
 }
