@@ -4,8 +4,14 @@
     box-sizing: border-box;
 }
 
+:root{
+    --primary-color: #9bb59c;
+    --secondary-color: #759177;
+    --background-co: rgb(255, 246, 233);
+}
+
 body{
-    background-color: blanchedalmond;
+    background-color: var(--background-co);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -18,8 +24,9 @@ header{
     justify-content: space-between;
     align-items: center;
     height: 7dvh;
-    margin-left: 250px;
-    transition: margin-left 0.3s ease;
+    padding-left: 250px;
+    transition: padding-left 0.3s ease;
+    border: rgba(188, 188, 188, 0.515) 1px solid;
 }
 
 .left-header, .right-header{
@@ -50,10 +57,11 @@ header{
 
 .search-bar input{
     padding: 8px 12px 8px 40px;
-    border: none;
+    border: 1px solid rgba(187, 187, 187, 0.695);
     border-radius: 10px;
     outline: none;
     font-size: 16px;
+    background-color: var(--background-co);
 }
 
 .search-bar {
@@ -77,8 +85,8 @@ main{
     align-items: center;
     gap: 30px;
     flex: 1;
-    margin-left: 250px;
-    transition: margin-left 0.3s ease;
+    padding-left: 250px;
+    transition: padding-left 0.3s ease;
 }
 
 .img-main img{
@@ -91,13 +99,23 @@ main{
     top: 0;
     width: 250px;
     height: 100vh;
-    background-color: #9bb59c;
+    background-color: var(--primary-color);
     padding: 10px;
 
     display: flex;
     flex-direction: column;
     gap: 20px;
     transition: width 0.3s ease;
+}
+
+.h2-chef{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hat-chef img{
+    width: 30px;
 }
 
 .left-pages{
@@ -109,11 +127,24 @@ main{
 .bar-dashboard, .bar-presets{
     display: flex;
     gap: 10px;
+    height: 40px;
+    align-items: center;
+    padding: 0 5px;
 }
 
 .bar-dashboard svg, .bar-presets svg{
     width: 25px;
 }
+
+.bar-dashboard:hover, .bar-presets:hover{
+    cursor: pointer;
+    color: white;
+    fill: white;
+    background-color: var(--secondary-color);
+    border-radius: 7px;
+}
+
+
 
 body.sidebar-hidden .left-bar {
     width: 0;
@@ -123,5 +154,5 @@ body.sidebar-hidden .left-bar {
 
 body.sidebar-hidden header,
 body.sidebar-hidden main {
-    margin-left: 0;
+    padding-left: 0;
 }
