@@ -115,6 +115,7 @@ main{
     display: none;
 }
 
+/* Welcome Page Styles */
 .welcoming-section{
     display: flex;
     flex-direction: column;
@@ -128,6 +129,31 @@ main{
 .img-main img{
     width: 400px;
 }
+
+/* Dashboard Page Styles */
+.dashboard-section{
+    padding: 40px 50px;
+    width: 100%;
+}
+
+.head-dashboard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.new-button{
+    padding: 10px 20px;
+    background-color: rgb(88, 148, 88);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Favorites Page Styles */
+
 
 /* Left Bar Styles */
 .left-bar{
@@ -149,6 +175,7 @@ main{
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
 }
 
 .hat-chef img{
