@@ -1,14 +1,17 @@
+/* General Rules */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Root Variables */
 :root{
     --primary-color: #9bb59c;
     --secondary-color: #759177;
     --background-co: rgb(255, 246, 233);
 }
+
 
 body{
     background-color: var(--background-co);
@@ -18,6 +21,7 @@ body{
     overflow-x: hidden;
 }
 
+/* Header Styles */
 header{
     background-color: white;
     display: flex;
@@ -49,10 +53,27 @@ header{
     cursor: pointer;
 }
 
+.notification svg:hover{
+    fill: orange;
+    animation: swing 0.5s ease;
+}
+
+@keyframes swing {
+    20% { transform: rotate(15deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(5deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
 .account svg{
     width: 30px;
     fill: gray;
     cursor: pointer;
+}
+
+.account svg:hover{
+    fill: black;
 }
 
 .search-bar input{
@@ -77,6 +98,7 @@ header{
     pointer-events: none;
 }  
 
+/* Main Content Styles */
 main{
     display: flex;
     flex-direction: column;
@@ -89,10 +111,25 @@ main{
     transition: padding-left 0.3s ease;
 }
 
+.display-hidden{
+    display: none;
+}
+
+.welcoming-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    text-align: center;
+    padding: 0 20px;
+}
+
 .img-main img{
     width: 400px;
 }
 
+/* Left Bar Styles */
 .left-bar{
     position: absolute;
     left: 0;
@@ -124,19 +161,21 @@ main{
     gap: 10px;
 }
 
-.bar-dashboard, .bar-presets{
+.bar-dashboard, .bar-favorite{
     display: flex;
     gap: 10px;
     height: 40px;
     align-items: center;
     padding: 0 5px;
+    fill: #456445;
 }
 
-.bar-dashboard svg, .bar-presets svg{
+.bar-dashboard svg, .bar-favorite svg{
     width: 25px;
 }
 
-.bar-dashboard:hover, .bar-presets:hover{
+
+.bar-dashboard:hover, .bar-favorite:hover{
     cursor: pointer;
     color: white;
     fill: white;
