@@ -54,6 +54,45 @@
             </div>
 
             <div class="container-recipes">
+                <!-- New Recipe Layout -->
+                <div class="new-recipe display-hidden" id="new-recipe-form">
+
+                    <h2>New Recipe</h2>
+
+                    <!-- Image upload -->
+                    <label class="image-upload">
+                        <input type="file" accept="image/*" id="recipe-image">
+                        <span>Upload Image</span>
+                        <img id="image-preview" />
+                    </label>
+
+                    <!-- Title -->
+                    <input 
+                        type="text" 
+                        id="recipe-title" 
+                        placeholder="Recipe title"
+                    >
+
+                    <!-- Description -->
+                    <textarea 
+                        id="recipe-description" 
+                        placeholder="Recipe description..."
+                    ></textarea>
+
+                    <!-- Steps -->
+                    <div class="steps">
+                        <h3>Steps</h3>
+                        <div id="steps-container"></div>
+
+                        <button class="add-step">+ Add Step</button>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="recipe-actions">
+                        <button class="save-recipe">Save Recipe</button>
+                        <button class="cancel-recipe">Cancel</button>
+                    </div>
+                </div>
 
             </div>
         </section>

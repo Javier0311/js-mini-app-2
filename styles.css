@@ -10,7 +10,363 @@
     --primary-color: #9bb59c;
     --secondary-color: #759177;
     --background-co: rgb(255, 246, 233);
+}/* =========================
+   General Rules
+========================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+/* =========================
+   Root Variables
+========================= */
+:root{
+    --primary-color: #9bb59c;
+    --secondary-color: #759177;
+    --background-co: rgb(255, 246, 233);
+}
+
+/* =========================
+   Body
+========================= */
+body{
+    background-color: var(--background-co);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    font-family: system-ui, sans-serif;
+}
+
+/* =========================
+   Header
+========================= */
+header{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7dvh;
+    padding-left: 250px;
+    transition: padding-left 0.3s ease;
+    border: rgba(188, 188, 188, 0.515) 1px solid;
+}
+
+.left-header,
+.right-header{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0 20px;
+}
+
+.toggle-menu svg,
+.notification svg,
+.account svg{
+    width: 30px;
+    fill: gray;
+    cursor: pointer;
+}
+
+.notification svg:hover{
+    fill: orange;
+    animation: swing 0.5s ease;
+}
+
+@keyframes swing {
+    20% { transform: rotate(15deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(5deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.account svg:hover{
+    fill: black;
+}
+
+/* =========================
+   Search Bar
+========================= */
+.search-bar{
+    position: relative;
+}
+
+.search-bar input{
+    padding: 8px 12px 8px 40px;
+    border: 1px solid rgba(187, 187, 187, 0.695);
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    background-color: var(--background-co);
+}
+
+.search-icon{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+    pointer-events: none;
+}
+
+/* =========================
+   Main
+========================= */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    width: 100%;
+    padding-left: 250px;
+    transition: padding-left 0.3s ease;
+}
+
+.display-hidden{
+    display: none;
+}
+
+/* =========================
+   Welcome Section
+========================= */
+.welcoming-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.img-main img{
+    width: 400px;
+    max-width: 100%;
+}
+
+/* =========================
+   Dashboard
+========================= */
+.dashboard-section{
+    padding: 40px 50px;
+    width: 100%;
+}
+
+.head-dashboard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.new-button{
+    padding: 10px 20px;
+    background-color: rgb(88, 148, 88);
+    border-radius: 7px;
+    cursor: pointer;
+    color: white;
+    user-select: none;
+}
+
+/* =========================
+   New Recipe Layout
+========================= */
+.new-recipe{
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.new-recipe h2{
+    margin-bottom: 10px;
+}
+
+.image-upload{
+    border: 2px dashed var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.image-upload input{
+    display: none;
+}
+
+.image-upload span{
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.image-upload img{
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: none;
+}
+
+.new-recipe input,
+.new-recipe textarea{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.new-recipe textarea{
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* =========================
+   Steps
+========================= */
+.steps{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.step-input{
+    display: flex;
+    gap: 10px;
+}
+
+.step-input input{
+    flex: 1;
+}
+
+.remove-step{
+    border: none;
+    background: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.add-step{
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* =========================
+   Recipe Actions
+========================= */
+.recipe-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.save-recipe{
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cancel-recipe{
+    background: transparent;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* =========================
+   Favorites
+========================= */
+.favorites-section{
+    width: 100%;
+    padding: 40px;
+}
+
+/* =========================
+   Sidebar
+========================= */
+.left-bar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--primary-color);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: width 0.3s ease;
+}
+
+.h2-chef{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.hat-chef img{
+    width: 30px;
+}
+
+.left-pages{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bar-dashboard,
+.bar-favorite{
+    display: flex;
+    gap: 10px;
+    height: 40px;
+    align-items: center;
+    padding: 0 5px;
+    fill: #456445;
+}
+
+.bar-dashboard svg,
+.bar-favorite svg{
+    width: 25px;
+}
+
+.bar-dashboard:hover,
+.bar-favorite:hover{
+    cursor: pointer;
+    color: white;
+    fill: white;
+    background-color: var(--secondary-color);
+    border-radius: 7px;
+}
+
+/* =========================
+   Sidebar Hidden State
+========================= */
+body.sidebar-hidden .left-bar{
+    width: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+body.sidebar-hidden header,
+body.sidebar-hidden main{
+    padding-left: 0;
+}
+
 
 
 body{
@@ -222,3 +578,95 @@ body.sidebar-hidden header,
 body.sidebar-hidden main {
     padding-left: 0;
 }
+
+/* Santiago Part */
+
+.new-recipe{
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.image-upload{
+    border: 2px dashed var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.image-upload input{
+    display: none;
+}
+
+.image-upload img{
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: none;
+}
+
+.new-recipe input,
+.new-recipe textarea{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.new-recipe textarea{
+    resize: vertical;
+    min-height: 100px;
+}
+
+.steps{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.step-input{
+    display: flex;
+    gap: 10px;
+}
+
+.step-input input{
+    flex: 1;
+}
+
+.add-step{
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.recipe-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.save-recipe{
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cancel-recipe{
+    background: transparent;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+/* Santiago End */
