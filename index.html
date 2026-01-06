@@ -36,14 +36,6 @@
     </header>
 
     <main>
-        <section class="welcoming-section" id="welcoming-page">
-            <div class="img-main">
-                <img src="./images/mainimage.webp" alt="Delicious food on a table">
-            </div>
-            <h1>Welcome to your new kitchen companion.</h1>
-            <p>What are we cooking today? Select a recipe from the dashboard to view details, or start writing your next culinary masterpiece.</p>
-        </section>
-
         <section class="display-hidden dashboard-section" id="dashboarding-page">
             <div class="head-dashboard">
                 <h1>Dashboard</h1>
@@ -52,47 +44,11 @@
                     New Recipe
                 </div>
             </div>
+        </section>        
+
+        <section class="adding-new-recipe">
 
             <div class="container-recipes">
-                <!-- New Recipe Layout -->
-                <div class="new-recipe display-hidden" id="new-recipe-form">
-
-                    <h2>New Recipe</h2>
-
-                    <!-- Image upload -->
-                    <label class="image-upload">
-                        <input type="file" accept="image/*" id="recipe-image">
-                        <span>Upload Image</span>
-                        <img id="image-preview" />
-                    </label>
-
-                    <!-- Title -->
-                    <input 
-                        type="text" 
-                        id="recipe-title" 
-                        placeholder="Recipe title"
-                    >
-
-                    <!-- Description -->
-                    <textarea 
-                        id="recipe-description" 
-                        placeholder="Recipe description..."
-                    ></textarea>
-
-                    <!-- Steps -->
-                    <div class="steps">
-                        <h3>Steps</h3>
-                        <div id="steps-container"></div>
-
-                        <button class="add-step">+ Add Step</button>
-                    </div>
-
-                    <!-- Actions -->
-                    <div class="recipe-actions">
-                        <button class="save-recipe">Save Recipe</button>
-                        <button class="cancel-recipe">Cancel</button>
-                    </div>
-                </div>
 
             </div>
         </section>

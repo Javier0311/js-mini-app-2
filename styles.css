@@ -517,7 +517,7 @@ main{
     left: 0;
     top: 0;
     width: 250px;
-    height: 100vh;
+    min-height: 100%;
     background-color: var(--primary-color);
     padding: 10px;
 
@@ -580,12 +580,17 @@ body.sidebar-hidden main {
 }
 
 /* Santiago Part */
-
+.recipes-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    place-items: center;
+}
 .new-recipe{
     background: white;
     padding: 30px;
     border-radius: 12px;
-    max-width: 600px;
+    min-width: 900px;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -620,32 +625,87 @@ body.sidebar-hidden main {
     font-size: 16px;
 }
 
+.prep-time-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prep-time{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
+.recipe-tags{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
 .new-recipe textarea{
     resize: vertical;
     min-height: 100px;
 }
 
-.steps{
+.ingredient-details-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.ingredients-main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.ingredient-container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.ingredient-amount{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100px;
+}
+
+.ingredients-container{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.step-input{
+.ingredient-input{
     display: flex;
     gap: 10px;
 }
 
-.step-input input{
+.ingredient-input input{
     flex: 1;
 }
 
-.add-step{
+.add-ingredient{
     align-self: flex-start;
     background: transparent;
     border: none;
     color: var(--secondary-color);
     cursor: pointer;
+}
+
+.remove-ingredient{
+    border: none;
+    background: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 100%;
 }
 
 .recipe-actions{
@@ -669,4 +729,5 @@ body.sidebar-hidden main {
     border-radius: 8px;
     cursor: pointer;
 }
+
 /* Santiago End */
