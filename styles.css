@@ -1,36 +1,15 @@
-/* General Rules */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Root Variables */
-:root{
-    --primary-color: #9bb59c;
-    --secondary-color: #759177;
-    --background-co: rgb(255, 246, 233);
-}/* =========================
-   General Rules
-========================= */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* =========================
-   Root Variables
-========================= */
 :root{
     --primary-color: #9bb59c;
     --secondary-color: #759177;
     --background-co: rgb(255, 246, 233);
 }
 
-/* =========================
-   Body
-========================= */
 body{
     background-color: var(--background-co);
     display: flex;
@@ -40,9 +19,15 @@ body{
     font-family: system-ui, sans-serif;
 }
 
-/* =========================
-   Header
-========================= */
+
+   /* Utilities */
+
+.display-hidden{
+    display: none;
+}
+
+   /* Header */
+
 header{
     background-color: white;
     display: flex;
@@ -87,9 +72,6 @@ header{
     fill: black;
 }
 
-/* =========================
-   Search Bar
-========================= */
 .search-bar{
     position: relative;
 }
@@ -112,9 +94,7 @@ header{
     pointer-events: none;
 }
 
-/* =========================
-   Main
-========================= */
+
 main{
     display: flex;
     flex-direction: column;
@@ -126,19 +106,21 @@ main{
     transition: padding-left 0.3s ease;
 }
 
-.display-hidden{
-    display: none;
-}
-
-/* =========================
-   Welcome Section
-========================= */
 .welcoming-section{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    max-width: 600px;
+    min-width: 100%;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.recipes-dashboard{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    place-items: center;
     text-align: center;
     padding: 0 20px;
 }
@@ -148,9 +130,7 @@ main{
     max-width: 100%;
 }
 
-/* =========================
-   Dashboard
-========================= */
+
 .dashboard-section{
     padding: 40px 50px;
     width: 100%;
@@ -172,14 +152,15 @@ main{
     user-select: none;
 }
 
-/* =========================
-   New Recipe Layout
-========================= */
+
+   /* New Recipe Layout (Form) */
+
 .new-recipe{
     background: white;
     padding: 30px;
     border-radius: 12px;
-    max-width: 600px;
+    width: 100%;
+    min-width: 900px;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -196,6 +177,7 @@ main{
     padding: 20px;
     text-align: center;
     cursor: pointer;
+    position: relative;
 }
 
 .image-upload input{
@@ -227,33 +209,70 @@ main{
     min-height: 100px;
 }
 
-/* =========================
-   Steps
-========================= */
-.steps{
+
+   /* Prep time + Servings row */
+
+.prep-time-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prep-time{
+    width: 100%;
+}
+
+/* Tags input */
+.recipe-tags{
+    width: 100%;
+}
+
+.recipe-main-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 120px;
+}
+
+.ingredients-main-container,
+.instructions-main-container{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.step-input{
+.instructions-main-container{
+    min-width: 40%;
+}
+
+.ingredients-container,
+.instructions-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Ingredient rows */
+.ingredient-container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.ingredient-amount{
+    width: 100px;
+}
+
+.ingredient-input{
     display: flex;
     gap: 10px;
 }
 
-.step-input input{
+.ingredient-input input{
     flex: 1;
 }
 
-.remove-step{
-    border: none;
-    background: #eee;
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 0 10px;
-}
-
-.add-step{
+.add-ingredient,
+.add-instruction{
     align-self: flex-start;
     background: transparent;
     border: none;
@@ -262,9 +281,26 @@ main{
     font-weight: 500;
 }
 
-/* =========================
-   Recipe Actions
-========================= */
+.remove-ingredient,
+.remove-instruction{
+    border: none;
+    background: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 40px;
+}
+
+/* Instruction row */
+.instruction-text{
+    padding: 10px;
+    min-height: 80px;
+    min-width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
 .recipe-actions{
     display: flex;
     gap: 10px;
@@ -287,23 +323,17 @@ main{
     cursor: pointer;
 }
 
-/* =========================
-   Favorites
-========================= */
 .favorites-section{
     width: 100%;
     padding: 40px;
 }
 
-/* =========================
-   Sidebar
-========================= */
 .left-bar{
     position: absolute;
     left: 0;
     top: 0;
     width: 250px;
-    height: 100vh;
+    height: 120vh;
     background-color: var(--primary-color);
     padding: 10px;
     display: flex;
@@ -353,9 +383,6 @@ main{
     border-radius: 7px;
 }
 
-/* =========================
-   Sidebar Hidden State
-========================= */
 body.sidebar-hidden .left-bar{
     width: 0;
     overflow: hidden;
@@ -367,404 +394,50 @@ body.sidebar-hidden main{
     padding-left: 0;
 }
 
-
-
-body{
-    background-color: var(--background-co);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow-x: hidden;
+.recipes-list{
+  width: 100%;
+  max-width: 1100px;
+  padding: 10px 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
 }
 
-/* Header Styles */
-header{
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 7dvh;
-    padding-left: 250px;
-    transition: padding-left 0.3s ease;
-    border: rgba(188, 188, 188, 0.515) 1px solid;
+.recipe-card{
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
 
-.left-header, .right-header{
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin: 0 20px;
+.recipe-card-img{
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
 }
 
-
-.toggle-menu svg{
-    width: 30px;
-    fill: gray;
-    cursor: pointer;
+.recipe-card-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.notification svg{
-    width: 30px;
-    fill: gray;
-    cursor: pointer;
+.recipe-card-body{
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.notification svg:hover{
-    fill: orange;
-    animation: swing 0.5s ease;
+.recipe-card-title{
+  font-size: 18px;
+  font-weight: 700;
 }
 
-@keyframes swing {
-    20% { transform: rotate(15deg); }
-    40% { transform: rotate(-10deg); }
-    60% { transform: rotate(5deg); }
-    80% { transform: rotate(-5deg); }
-    100% { transform: rotate(0deg); }
+.recipe-card-desc{
+  font-size: 14px;
+  color: rgba(0,0,0,0.7);
+  line-height: 1.35;
 }
-
-.account svg{
-    width: 30px;
-    fill: gray;
-    cursor: pointer;
-}
-
-.account svg:hover{
-    fill: black;
-}
-
-.search-bar input{
-    padding: 8px 12px 8px 40px;
-    border: 1px solid rgba(187, 187, 187, 0.695);
-    border-radius: 10px;
-    outline: none;
-    font-size: 16px;
-    background-color: var(--background-co);
-}
-
-.search-bar {
-    position: relative;
-}
-
-.search-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: gray;
-    pointer-events: none;
-}  
-
-/* Main Content Styles */
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-    gap: 30px;
-    flex: 1;
-    padding-left: 250px;
-    transition: padding-left 0.3s ease;
-}
-
-.display-hidden{
-    display: none;
-}
-
-/* Welcome Page Styles */
-.welcoming-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    max-width: 600px;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.img-main img{
-    width: 400px;
-}
-
-/* Dashboard Page Styles */
-.dashboard-section{
-    padding: 40px 50px;
-    width: 100%;
-}
-
-.head-dashboard{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.new-button{
-    padding: 10px 20px;
-    background-color: rgb(88, 148, 88);
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    color: white;
-}
-
-/* Favorites Page Styles */
-
-
-/* Left Bar Styles */
-.left-bar{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 250px;
-    min-height: 100%;
-    background-color: var(--primary-color);
-    padding: 10px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transition: width 0.3s ease;
-}
-
-.h2-chef{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.hat-chef img{
-    width: 30px;
-}
-
-.left-pages{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.bar-dashboard, .bar-favorite{
-    display: flex;
-    gap: 10px;
-    height: 40px;
-    align-items: center;
-    padding: 0 5px;
-    fill: #456445;
-}
-
-.bar-dashboard svg, .bar-favorite svg{
-    width: 25px;
-}
-
-
-.bar-dashboard:hover, .bar-favorite:hover{
-    cursor: pointer;
-    color: white;
-    fill: white;
-    background-color: var(--secondary-color);
-    border-radius: 7px;
-}
-
-
-
-body.sidebar-hidden .left-bar {
-    width: 0;
-    overflow: hidden;
-    padding: 0;
-}
-
-body.sidebar-hidden header,
-body.sidebar-hidden main {
-    padding-left: 0;
-}
-
-/* Santiago Part */
-.recipes-dashboard {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    place-items: center;
-}
-.new-recipe{
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    min-width: 900px;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.image-upload{
-    border: 2px dashed var(--secondary-color);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-}
-
-.image-upload input{
-    display: none;
-}
-
-.image-upload img{
-    max-width: 100%;
-    margin-top: 10px;
-    border-radius: 10px;
-    display: none;
-}
-
-.new-recipe input,
-.new-recipe textarea{
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-.prep-time-container{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.prep-time{
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    width: 100%;
-}
-
-.recipe-tags{
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    width: 100%;
-}
-
-.new-recipe textarea{
-    resize: vertical;
-    min-height: 100px;
-}
-.recipe-main-container{
-    display: flex;
-    justify-content: space-between;
-    gap: 120px;
-}
-.ingredient-details-container{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.ingredients-main-container{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.ingredient-container{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.ingredient-amount{
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    width: 100px;
-}
-
-.ingredients-container{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.ingredient-input{
-    display: flex;
-    gap: 10px;
-}
-
-.ingredient-input input{
-    flex: 1;
-}
-
-.add-ingredient{
-    align-self: flex-start;
-    background: transparent;
-    border: none;
-    color: var(--secondary-color);
-    cursor: pointer;
-}
-
-.remove-ingredient{
-    border: none;
-    background: #eee;
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 0 10px;
-    height: 100%;
-}
-.instructions-main-container{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 40%;
-}
-.add-instruction{
-    align-self: flex-start;
-    background: transparent;
-    border: none;
-    color: var(--secondary-color);
-    cursor: pointer;
-}
-.instructions-container{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.instruction-text {
-    padding: 10px;
-    min-height: 80px;
-    min-width: 80%;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-.remove-instruction{
-    border: none;
-    background: #eee;
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 0 10px;
-    height: 40px;    
-}
-.recipe-actions{
-    display: flex;
-    gap: 10px;
-}
-
-.save-recipe{
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.cancel-recipe{
-    background: transparent;
-    border: 1px solid #ccc;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* Santiago End */
