@@ -368,11 +368,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (welcomingBtn) {
     welcomingBtn.addEventListener("click", () => {
-      hasVisitedDashboard = true;
+      hasVisitedDashboard = false; 
 
       hideAllPages();
+
       if (dashboardingPage) dashboardingPage.classList.remove("display-hidden");
       if (addingRecipeSection) addingRecipeSection.classList.remove("display-hidden");
+
+      const existingForm = document.querySelector(".new-recipe");
+      if (existingForm) existingForm.remove();
 
       showEmptyStateIfNeeded();
     });
