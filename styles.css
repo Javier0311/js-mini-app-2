@@ -651,7 +651,11 @@ body.sidebar-hidden main {
     resize: vertical;
     min-height: 100px;
 }
-
+.recipe-main-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 120px;
+}
 .ingredient-details-container{
     display: flex;
     flex-direction: column;
@@ -707,7 +711,40 @@ body.sidebar-hidden main {
     padding: 0 10px;
     height: 100%;
 }
-
+.instructions-main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 40%;
+}
+.add-instruction{
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+.instructions-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.instruction-text {
+    padding: 10px;
+    min-height: 80px;
+    min-width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+.remove-instruction{
+    border: none;
+    background: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 40px;    
+}
 .recipe-actions{
     display: flex;
     gap: 10px;

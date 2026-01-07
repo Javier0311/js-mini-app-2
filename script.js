@@ -136,10 +136,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <textarea class="recipe-description" placeholder="Recipe description..."></textarea>
 
-            <div class="ingredients-main-container">
-                <h3>Ingredients</h3>
-                <div class="ingredients-container"></div>
-                <button type="button" class="add-ingredient">+ Add Ingredient</button>
+            <div class="recipe-main-container">
+                <div class="ingredients-main-container">
+                    <h3>Ingredients</h3>
+                    <div class="ingredients-container"></div>
+                    <button type="button" class="add-ingredient">+ Add Ingredient</button>
+                </div>
+
+                <div class="instructions-main-container">
+                    <h3>Instructions</h3>
+                    <div class="instructions-container"></div>
+                    <button type="button" class="add-instruction">+ Add Instruction</button>
+                </div>
             </div>
 
             <div class="recipe-actions">
@@ -158,6 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const ingredientsContainer = form.querySelector(".ingredients-container");
         const addIngredientBtn = form.querySelector(".add-ingredient");
 
+        const instructionsContainer = form.querySelector(".instructions-container");
+        const addInstructionBtn = form.querySelector(".add-instruction");
+
         const saveRecipeBtn = form.querySelector(".save-recipe");
         const cancelRecipeBtn = form.querySelector(".cancel-recipe");
 
@@ -169,7 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
             imagePreview.style.display = "block";
         });
 
-        addIngredientBtn.addEventListener("click", () => {
+        addIngredientBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+
             const ingredientRow = document.createElement("div");
             ingredientRow.className = "ingredient-input";
 
@@ -188,11 +201,32 @@ document.addEventListener("DOMContentLoaded", () => {
             ingredientsContainer.appendChild(ingredientRow);
         });
 
+        addInstructionBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const instructionRow = document.createElement("div");
+            instructionRow.className = "instruction-input";
+
+            instructionRow.innerHTML = `
+                <input type="text" class="instruction-text" placeholder="e.g., Preheat the oven to 350°F">
+                <button type="button" class="remove-instruction">✕</button>
+            `;
+
+            instructionRow.querySelector(".remove-instruction").addEventListener("click", () => {
+                instructionRow.remove();
+            });
+
+            instructionsContainer.appendChild(instructionRow);
+        });
+
         function resetFormUI() {
             titleInput.value = "";
             descriptionInput.value = "";
             imageInput.value = "";
+
             ingredientsContainer.innerHTML = "";
+            instructionsContainer.innerHTML = "";
+
             imagePreview.src = "";
             imagePreview.style.display = "none";
         }
