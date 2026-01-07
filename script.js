@@ -43,3 +43,46 @@ welcoming.addEventListener('click', () => {
     welcomingPage.classList.remove("display-hidden");
     welcomingPage.classList.add("welcoming-section")
 })
+
+// Tags using Sets
+
+let tags = new Set(["Spicy", "Dessert", "Quick", "Breakfast"]);
+
+const listContainer = document.getElementById('list-container');
+
+
+function showtags() {
+    listContainer.innerHTML = '';
+
+    tags.forEach(tag => {
+        const itemHTML = `
+        <li class="ingrediente-item">
+            ${tag} 
+        </li>
+        `;
+
+        listContainer.innerHTML += itemHTML;
+    });
+}
+
+showtags();
+
+const testTag = document.getElementById("test-tag");
+const newTag = document.getElementById("newTag")
+
+testTag.addEventListener('click', () => {
+    const getText = newTag.value;
+
+    if (getText !== ''){
+        tags.add(getText);
+
+        showtags();
+    } else{
+        alert('Fill the field')
+    }
+
+    if (tags.has(getText)){
+        alert("This tag already exist");
+    }
+    
+});
