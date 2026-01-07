@@ -18,8 +18,6 @@ function ensureRecipesList($container, className = "recipes-list") {
     }
     return $list;
 }
-
-// --- VISIBILIDAD ---
 export function hideAllPages() {
     $("#dashboarding-page").addClass("display-hidden");
     $("#favoriting-page").addClass("display-hidden");
@@ -35,7 +33,6 @@ export function showEmptyStateIfNeeded(isFavoritesView = false) {
         return;
     }
 
-    // Lógica Home vs Dashboard
     if (!appState.hasVisitedDashboard && !isFavoritesView) {
         $(".recipes-dashboard").remove();
         renderRecipes(false);
@@ -54,8 +51,6 @@ export function showEmptyStateIfNeeded(isFavoritesView = false) {
     renderRecipes(false);
     if(!isFavoritesView) createRecipesDashboard();
 }
-
-// --- RENDERIZADO ---
 
 export function createWelcomeSection() {
     if ($(".welcoming-section").length > 0) return;
@@ -211,7 +206,6 @@ export function openRecipeDetails(recipe) {
     $targetContainer.append($detail);
     $detail.fadeIn(200);
 
-    // Eventos
     $detail.find(".back-btn").on("click", () => {
         $detail.remove();
         $listToHide.css("display", "grid");
@@ -243,7 +237,6 @@ export function openRecipeDetails(recipe) {
 }
 
 export function createNewRecipeForm(recipeToEdit = null) {
-    // Si estamos en favoritos, cambiar a dashboard para el form
     if (!$("#favoriting-page").hasClass("display-hidden")) {
         hideAllPages();
         $("#dashboarding-page").removeClass("display-hidden");
@@ -303,8 +296,6 @@ export function createNewRecipeForm(recipeToEdit = null) {
         $row.find(".remove-instruction").on("click", () => $row.remove());
         $instContainer.append($row);
     };
-
-    // Llenar datos si es editar
     if(recipeToEdit) {
         $form.find(".recipe-title").val(recipeToEdit.title);
         $form.find(".recipe-description").val(recipeToEdit.description);
@@ -315,8 +306,6 @@ export function createNewRecipeForm(recipeToEdit = null) {
         if(recipeToEdit.ingredients) recipeToEdit.ingredients.forEach(i => addIng(i.amount, i.name));
         if(recipeToEdit.instructions) recipeToEdit.instructions.forEach(i => addInst(i));
     }
-
-    // Listeners del form
     $form.find(".add-tag-btn").on("click", (e) => { e.preventDefault(); addTag($form.find(".tag-entry-input").val()); $form.find(".tag-entry-input").val("").focus(); });
     $form.find(".tag-entry-input").on("keydown", (e) => { if(e.key==="Enter"){ e.preventDefault(); addTag($(e.target).val()); $(e.target).val(""); } });
     $form.find(".add-ingredient").on("click", (e) => { e.preventDefault(); addIng(); });

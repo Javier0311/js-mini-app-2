@@ -303,7 +303,7 @@ main {
 
 /* Sidebar */
 .left-bar {
-    position: fixed; /* Cambiado a fixed para que se quede quieto al hacer scroll */
+    position: fixed;
     left: 0;
     top: 0;
     width: 250px;
@@ -438,10 +438,6 @@ body.sidebar-hidden main {
     padding: 40px;
     text-align: center;
 }
-
-/* ------------------------------------------------ */
-/* RECIPE DETAIL VIEW (NUEVO)          */
-/* ------------------------------------------------ */
 
 .recipe-detail-view {
     background: white;
@@ -602,7 +598,7 @@ body.sidebar-hidden main {
 }
 
 .detail-meta-info .tag-pill {
-    background-color: #e8f5e9; /* Un verde muy clarito para los tags */
+    background-color: #e8f5e9;
     color: #2e7d32;
     border-color: #c8e6c9;
 }
@@ -613,10 +609,8 @@ body.sidebar-hidden main {
     align-items: center;
     margin-bottom: 25px;
 }
-
-/* Ajuste para el botón de atrás antiguo, ahora dentro de la barra */
 .detail-top-bar .back-btn {
-    margin-bottom: 0; /* Quitamos el margen que tenía antes */
+    margin-bottom: 0;
 }
 
 .delete-btn {

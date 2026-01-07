@@ -1,13 +1,10 @@
-// events.js
 import { appState } from './data.js';
 import { hideAllPages, showEmptyStateIfNeeded, renderFavorites, createNewRecipeForm, updateSidebarTags } from './render.js';
 
 export function initGlobalEvents() {
     
-    // Toggle Menu
     $(".toggle-menu").on("click", () => $("body").toggleClass("sidebar-hidden"));
 
-    // Navegación Sidebar
     $("#dashboarding").on("click", () => {
         appState.hasVisitedDashboard = true;
         hideAllPages();
@@ -35,12 +32,9 @@ export function initGlobalEvents() {
         $(".welcoming-section, .recipes-dashboard").remove();
         createNewRecipeForm();
     });
-
-    // Buscador Global
     $(".search-bar input").on("input", function() {
         appState.searchQuery = $(this).val().trim();
         
-        // Si estoy buscando, ir al dashboard
         if (appState.searchQuery && $("#favoriting-page").hasClass("display-hidden")) {
             appState.hasVisitedDashboard = true;
             hideAllPages();
@@ -49,7 +43,7 @@ export function initGlobalEvents() {
             $(".welcoming-section").remove();
         }
 
-        // Si estoy en favoritos, renderizar favoritos, si no dashboard
+
         if (!$("#favoriting-page").hasClass("display-hidden")) {
             renderFavorites();
         } else {
