@@ -10,10 +10,9 @@ Santiago Suarez Jaramillo
 Recipe / Cooking Journal
 
 ## Tecnologies used
-HTML5 - Semantic Structure
-CSS - Styling, Animation
-JS - Condition, Loops, Set, Maps etc
-Node.js Server and Modular JS ESM
+- **HTML5** - Semantic structure
+- **CSS3** - Styling and responsive design
+- **JavaScript (Vanilla)** - Interactive logic
 
 ## How to Use
 
